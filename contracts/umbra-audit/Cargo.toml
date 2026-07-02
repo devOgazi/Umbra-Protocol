@@ -1,0 +1,12 @@
+[package]
+name = "umbra-audit"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+soroban-sdk.workspace = true
+umbra-crypto = { workspace = true, default-features = false }
+
+[lib]
+crate-type = ["cdylib", "rlib"]
