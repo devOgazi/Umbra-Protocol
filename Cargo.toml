@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = [
+    "contracts/umbra-audit",
+    "contracts/umbra-escrow",
+    "contracts/umbra-crypto",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[workspace.dependencies]
+soroban-sdk = "21"
+umbra-crypto = { path = "contracts/umbra-crypto", default-features = false }
+
+# std is not available in Soroban contracts; use alloc + soroban-sdk instead.
+# See https://soroban.stellar.org/docs
