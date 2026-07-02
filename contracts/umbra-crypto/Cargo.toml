@@ -1,0 +1,23 @@
+[package]
+name = "umbra-crypto"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+curve25519-dalek-ng = { version = "4", default-features = false, features = ["u64_backend"] }
+sha3 = "0.9"
+
+# Bulletproofs range proofs (only with "proofs" feature).
+# Not available on wasm32-unknown-unknown due to getrandom limitations.
+bulletproofs = { version = "4", default-features = false, optional = true }
+merlin = { version = "3", optional = true }
+rand_core = { version = "0.6", default-features = false, optional = true }
+
+[dev-dependencies]
+rand = "0.8"
+
+[features]
+default = []
+std = ["curve25519-dalek-ng/std"]
+proofs = ["bulletproofs", "merlin", "rand_core", "std"]
