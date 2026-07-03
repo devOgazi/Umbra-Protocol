@@ -7,9 +7,11 @@ license.workspace = true
 [dependencies]
 curve25519-dalek-ng = { version = "4", default-features = false, features = ["u64_backend"] }
 sha3 = "0.9"
+# Force getrandom `custom` so wasm32-unknown-unknown can compile transitive deps.
+getrandom = { workspace = true }
 
-# Bulletproofs range proofs (only with "proofs" feature).
-# Not available on wasm32-unknown-unknown due to getrandom limitations.
+# Bulletproofs range proofs (only with "proofs" feature, requires std + clang).
+# NOT compatible with wasm32-unknown-unknown — proof generation is off-chain only.
 bulletproofs = { version = "4", default-features = false, optional = true }
 merlin = { version = "3", optional = true }
 rand_core = { version = "0.6", default-features = false, optional = true }
@@ -20,4 +22,5 @@ rand = "0.8"
 [features]
 default = []
 std = ["curve25519-dalek-ng/std"]
+# Full prove+verify — requires std, clang, and RNG. Off-chain use only.
 proofs = ["bulletproofs", "merlin", "rand_core", "std"]
