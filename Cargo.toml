@@ -15,5 +15,12 @@ license = "Apache-2.0"
 soroban-sdk = "21"
 umbra-crypto = { path = "contracts/umbra-crypto", default-features = false }
 
+# getrandom: force the `custom` feature so wasm32-unknown-unknown can compile
+# crates that transitively depend on getrandom (e.g. curve25519-dalek-ng via
+# bulletproofs). The `custom` feature stubs out the OS entropy source — actual
+# randomness is only needed for proof *generation* (off-chain), not verification.
+# See https://docs.rs/getrandom/#custom-implementations
+getrandom = { version = "0.2", features = ["custom"] }
+
 # std is not available in Soroban contracts; use alloc + soroban-sdk instead.
 # See https://soroban.stellar.org/docs
