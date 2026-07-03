@@ -1,5 +1,4 @@
-// Umbra Audit — Integration tests
+// Integration tests for umbra-audit live in:
+//   contracts/umbra-audit/tests/audit_integration.rs
 //
-// These tests validate the full flow: off-chain proof generation → on-chain
-// verification → event emission.
-// To be implemented in Day 4 (integration test phase).
+// Run with: cargo test -p umbra-audit
