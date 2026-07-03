@@ -6,7 +6,17 @@ license.workspace = true
 
 [dependencies]
 soroban-sdk.workspace = true
-umbra-crypto = { workspace = true, default-features = false }
+umbra-crypto = { workspace = true }
+# Force getrandom `custom` for wasm32 transitive dep compatibility.
+getrandom = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { version = "21", features = ["testutils"] }
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+sha2 = "0.10"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
+
+[features]
+testutils = []
