@@ -1571,6 +1571,10 @@ dependencies = [
 name = "umbra-escrow"
 version = "0.1.0"
 dependencies = [
+ "curve25519-dalek-ng",
+ "ed25519-dalek",
+ "getrandom",
+ "sha2",
  "soroban-sdk",
  "umbra-crypto",
 ]
