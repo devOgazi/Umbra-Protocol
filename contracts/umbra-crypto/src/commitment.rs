@@ -48,6 +48,20 @@ impl Commitment {
     pub fn eq_commitment(&self, other: &Self) -> bool {
         self == other
     }
+
+    /// Verify that `value` and `blinding_bytes` (32-byte LE scalar) open this
+    /// commitment.
+    ///
+    /// Accepts the blinding factor as a raw 32-byte array (canonical little-
+    /// endian encoding) so callers don't need to depend on `curve25519_dalek_ng`
+    /// directly. Internally uses `Scalar::from_bytes_mod_order`.
+    ///
+    /// Returns `true` if the opening is valid.
+    pub fn verify_opening_bytes(commitment_bytes: &[u8; 32], value: u64, blinding_bytes: &[u8; 32]) -> bool {
+        let blinding = Scalar::from_bytes_mod_order(*blinding_bytes);
+        let expected = Commitment::new(value, blinding);
+        expected.as_bytes() == commitment_bytes
+    }
 }
 
 #[cfg(test)]
