@@ -1,0 +1,183 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #8b949e;
+  margin-top: 0.25rem;
+}
+
+/* Dashboard */
+.dashboard {
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.dashboard-header h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.refresh-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: #30363d;
+}
+
+/* Status bar */
+.status-bar {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 1.25rem;
+  background: #0d1117;
+  border-bottom: 1px solid #21262d;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-label {
+  font-size: 0.75rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.status-value.passing {
+  color: #3fb950;
+}
+
+.status-value.failing {
+  color: #f85149;
+}
+
+/* Event table */
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+  text-align: left;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #21262d;
+}
+
+.event-table th {
+  background: #161b22;
+  color: #8b949e;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.event-table tr:last-child td {
+  border-bottom: none;
+}
+
+.event-table tbody tr:hover {
+  background: #1c2128;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge.pass {
+  background: rgba(63, 185, 80, 0.15);
+  color: #3fb950;
+}
+
+.badge.fail {
+  background: rgba(248, 81, 73, 0.15);
+  color: #f85149;
+}
+
+/* Loading / error */
+.loading,
+.error,
+.empty {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  color: #8b949e;
+}
+
+.error {
+  color: #f85149;
+}
+
+/* Network selector */
+.network-info {
+  padding: 0.75rem 1.25rem;
+  background: #0d1117;
+  font-size: 0.8rem;
+  color: #8b949e;
+  border-bottom: 1px solid #21262d;
+}
