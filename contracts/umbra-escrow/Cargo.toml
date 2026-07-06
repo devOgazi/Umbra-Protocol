@@ -15,6 +15,7 @@ getrandom = { workspace = true }
 soroban-sdk = { version = "21", features = ["testutils"] }
 ed25519-dalek = { version = "2", features = ["rand_core"] }
 sha2 = "0.10"
+umbra-crypto = { path = "../umbra-crypto" }
 
 [lib]
 crate-type = ["cdylib", "rlib"]

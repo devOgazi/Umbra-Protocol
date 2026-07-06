@@ -1,0 +1,19 @@
+{
+  "name": "umbra-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy-Preserving Enterprise Infrastructure for the Stellar Network",
+  "scripts": {
+    "test": "npm run test:sdk-audit && npm run test:sdk-escrow && npm run test:cross-module",
+    "test:sdk-audit": "cd clients/audit-sdk && npm test",
+    "test:sdk-escrow": "cd clients/escrow-sdk && npm test",
+    "test:cross-module": "cd clients && npx jest --config jest.config.js --passWithNoTests",
+    "test:e2e": "cd clients/audit-sdk && npm run test:e2e && cd ../escrow-sdk && npm run test:e2e",
+    "test:rust": "cargo test --workspace",
+    "test:all": "npm run test:rust && npm run test",
+    "install:all": "cd clients/audit-sdk && npm install && cd ../escrow-sdk && npm install && cd ../../dashboard && npm install",
+    "deploy": "./scripts/deploy.sh",
+    "dashboard": "cd dashboard && npm run dev"
+  },
+  "license": "Apache-2.0"
+}
